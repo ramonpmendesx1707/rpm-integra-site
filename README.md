@@ -12,6 +12,7 @@ Não adicionar CNAME ou alterar o domínio durante a fase de revisão.
 
 - index.html: conteúdo e estrutura.
 - style.css: apresentação responsiva e animações.
+- impact.css: direção visual editorial com contraste escuro, verde e tipografia Syne.
 - script.js: seletor de desafios, WhatsApp, pausa de movimento e revelações na rolagem.
 - ramon.avif: retrato profissional do currículo público.
 - marca.svg: símbolo provisório da marca.
