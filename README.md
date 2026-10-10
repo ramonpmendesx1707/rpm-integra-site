@@ -13,6 +13,7 @@ Não adicionar CNAME ou alterar o domínio durante a fase de revisão.
 - index.html: conteúdo e estrutura.
 - style.css: apresentação responsiva e animações.
 - impact.css: direção visual editorial com contraste escuro, verde e tipografia Syne.
+- refine.css: revisão com abertura clara, tipografia Manrope, método interativo e foto sem recorte.
 - script.js: seletor de desafios, WhatsApp, pausa de movimento e revelações na rolagem.
 - ramon.avif: retrato profissional do currículo público.
 - marca.svg: símbolo provisório da marca.
@@ -28,6 +29,8 @@ Não há cases, depoimentos, métricas ou parcerias comerciais atribuídos à RP
 Propostas comerciais privadas não fazem parte do repositório.
 
 O movimento respeita a preferência de movimento reduzido do dispositivo e possui botão de pausa.
+As cinco etapas aparecem na abertura, com seleção manual e progressão automática a cada cinco segundos.
+Os serviços aparecem imediatamente depois da abertura. O nome de Ramon fica abaixo da foto.
 Conteúdo e links de WhatsApp permanecem disponíveis sem JavaScript.
 
 ## Revisão antes da versão definitiva

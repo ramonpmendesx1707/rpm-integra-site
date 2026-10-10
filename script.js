@@ -21,3 +21,20 @@ motion.addEventListener('click',()=>{const paused=document.documentElement.class
 if('IntersectionObserver' in window){const observer=new IntersectionObserver(items=>{items.forEach(item=>{if(item.isIntersecting){item.target.classList.add('visible');observer.unobserve(item.target);}});},{threshold:.08});document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));}else{document.querySelectorAll('.reveal').forEach(el=>el.classList.add('visible'));}
 let ticking=false;function progress(){const max=document.documentElement.scrollHeight-innerHeight;document.querySelector('.reading').style.transform='scaleX('+(max>0?scrollY/max:0)+')';ticking=false;}
 addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(progress);ticking=true;}},{passive:true});progress();
+const journeyButtons=[...document.querySelectorAll('[data-journey]')];
+const journeyDeliveries=['Diagnóstico e oportunidades.','Plano de ação e escopo acordados.','Solução pronta para validar.','Entrega validada e equipe orientada.','Próximos passos com base na prática.'];
+const journeyPhases=['Depois de entender','Depois de planejar','Depois de implementar','Depois de entregar','Para continuar evoluindo'];
+let journeyCurrent=0,journeyLast=Date.now();
+function selectJourney(index){
+ journeyCurrent=index;
+ journeyButtons.forEach((button,i)=>{button.classList.toggle('active',i===index);button.setAttribute('aria-pressed',String(i===index));});
+ document.getElementById('journey-phase').textContent=journeyPhases[index];
+ document.getElementById('journey-output').textContent=journeyDeliveries[index];
+ document.querySelector('.journey-progress i').style.width=((index+1)*20)+'%';
+ journeyLast=Date.now();
+}
+journeyButtons.forEach((button,index)=>button.addEventListener('click',()=>selectJourney(index)));
+setInterval(()=>{
+ if(document.hidden||reduced.matches||document.documentElement.classList.contains('paused')){journeyLast=Date.now();return;}
+ if(Date.now()-journeyLast>=5000)selectJourney((journeyCurrent+1)%journeyButtons.length);
+},500);
